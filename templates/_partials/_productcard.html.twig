@@ -1,0 +1,24 @@
+{% set url = path('accessoire_show', {'slug': accessoire.slug }) %}
+{% set urlPanier = path('panier_add', {'id': accessoire.id  }) %}
+
+
+  <div class="col">
+          <div class="card shadow-lg">
+            <img src="{{accessoire.coverImage}}"class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+            <div class="card-body">
+            <h5 class="card-title">{{accessoire.categoryAccessoire.type}}</h5>
+                <p class="card-text">{{accessoire.description}}.</p
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" class="btn btn-sm btn-outline-info" href="{{url}}">Voir plus...</a>
+                  <a type="button" class="btn btn-sm btn-outline-info"href="{{ urlPanier}}"><i class="fas fa-shopping-basket"></i> Ajouter panier</a>
+                 
+
+                </div>
+                <small class="text-muted">{{accessoire.price}} €</small>
+              </div>
+            </div>
+          </div>
+        
+ 

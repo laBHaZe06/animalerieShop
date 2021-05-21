@@ -1,0 +1,54 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// Copy text color
+/// @type Color
+$text-color: rgb(39, 39, 39) !default;
+/// Light grey
+/// @type Color
+$light-grey: rgb(237, 237, 237) !default;
+/// Medium grey
+/// @type Color
+$mid-grey: rgb(153, 153, 153) !default;
+/// Dark grey
+/// @type Color
+$dark-grey: rgb(68, 68, 68) !default;
+//White color 
+///@type Color
+$white-color :#ffffff;
+
+//color Footer 
+///@type Color
+$footer-color :  #21282e;
+$copyright-color :  #2d3841;
+//Orange Principal color site  
+///@type Color
+$principal-color :  #50aa93;
+//Linear Gradient Color Icon Social Button
+///@type Color
+$gradient-color : linear-gradient(45deg,#65d6c7,#19a073);
+//Shadow Color  
+///@type Color
+$shadow-color :#3b3b3bd7;
+
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1180px !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
+) !default;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;

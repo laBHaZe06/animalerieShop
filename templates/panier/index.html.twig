@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Panier {% endblock %}
+{% block body %}
+
+{% include '_partials/_header.html.twig' %}
+<div class="card">
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>Votre PANIER</b></h4>
+                    </div>
+                            
+                        {% if items|length > 0  %}
+                        {% for item in items %}
+                        
+                        
+                      
+                </div>
+            </div>
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-2"><img class="img-fluid" src="{{ item.accessoire.coverImage}}"></div>
+                    <div class="col">
+                        <div class="row text-muted">{{ item.accessoire.CategoryAccessoire}}</div>
+                        <div class="row">{{ item.accessoire.categoryAnimaux}}</div>
+                         <div class="row text-muted">{{ item.accessoire.description }}</div>
+                        <div class="row">reste {{ item.accessoire.stock}} unités</div>
+                    </div>
+                    <div class="col"> <a href="#">-</a><a href="#" class="border">{{ item.quantity }}</a><a href="#">+</a> </div>
+                    <div class="col">€ {{ item.accessoire.price}}<span class="close">X</span></div>
+                   
+                     <a type="button" class="btn btn-sm btn-outline-warning"href="{{ path('delete' , {'id': items.accessoire.id  } ) }}"><i class="fas fa-shopping-basket"></i>ANNULER ARTICLE</a>
+
+                    
+        {% endfor %}
+                </div>
+            </div>
+
+            <div class="back-to-shop"><a href="{{path('home')}}"><i class="fas fa-arrow-left"></i></a><span class="text-muted">Back to
+                    shop</span></div>
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Résumé</b></h5>
+            </div>
+            <hr class="hr">
+             {% for item in items %}
+            <div class="row">
+                <div class="col d-block" style="padding-left:0;">{{ item.quantity }}</div>
+                
+                 <div class="col text-right">{{ item.accessoire.price * item.quantity }} €</div>
+            </div>
+            {% endfor %}
+            <form class="form-panier">
+                <p>Frais de livraison</p> <select class="select-panier">
+                    <option class="text-muted">Livraison standard- € 5.00</option>
+                </select>
+                <p>CODE PROMOS</p> <input id="code" placeholder="Enter your code" class="input-panier">
+            </form>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">TOTAL :</div>
+                <div class="col text-right">€ {{ total }}</div>
+            </div> 
+            <a class="btn btn-success btn-panier" href="#">COMMANDER</a>
+            <a type="button" class="btn btn-warning mt-4"href="{{ path('delete_all') }}"><i class="fas fa-shopping-basket"></i>VIDER PANIER</a>
+            
+            
+        
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="col">
+    <h4><b>VOTRE PANIER EST VIDE</b></h4>
+</div>
+<div class="back-to-shop"><a href="{{path('home')}}"><i class="fas fa-arrow-left"></i></a><span class="text-muted">Continuer mes achats</span></div>
+{% endif %}
+{% endblock %}
+
+{% block javascript %}
+<script>
+
+
+</script>
+
+{% endblock %}

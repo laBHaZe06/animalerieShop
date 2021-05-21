@@ -1,0 +1,19 @@
+{% set url = path('animaux_show', {'slug': animaux.slug }) %}
+
+    <div class="col">
+          <div class="card shadow-lg">
+            <img src="{{animaux.coverImage}}"class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+            <div class="card-body">
+            <h5 class="card-title">{{animaux.categoryAnimaux.type}}</h5>
+                <p class="card-text">{{animaux.description}}.</p
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" class="btn btn-sm btn-outline-info" href="{{url}}">Voir plus...</a>
+                  
+                </div>
+                <small class="text-muted">{{animaux.price}} €</small>
+              </div>
+            </div>
+          </div>
+        

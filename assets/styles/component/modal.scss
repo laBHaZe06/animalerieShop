@@ -1,0 +1,290 @@
+/* The Overlay (background) */
+/* Position the content inside the overlay */
+/* The navigation links inside the overlay */
+/* When you mouse over the navigation links, change their color */
+/* Position the close button (top right corner) */
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+.overlay {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0, 0.9);
+	overflow-x: hidden;
+	transition: 0.5s;
+	a {
+		padding: 8px;
+		text-decoration: none;
+		font-size: 36px;
+		color: #2c2c2c;
+		display: block;
+		transition: 0.3s;
+		&:hover {
+			color: #f1f1f1;
+		}
+		&:focus {
+			color: #f1f1f1;
+		}
+	}
+	.closebtn {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+}
+.overlay-content {
+	position: relative;
+	top: 5%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+.group {
+	.button {
+		width: 20%;
+		font-size: 1.2rem;
+	}
+}
+* {
+	box-sizing: border-box;
+	
+	&:before {
+		box-sizing: border-box;
+	}
+	&:after {
+		box-sizing: border-box;
+	}
+}
+
+.clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+		display: block;
+	}
+	&:before {
+		content: '';
+		display: table;
+	}
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+.login-wrap {
+	width: 100%;
+	margin: auto;
+	max-width: 35rem;
+	min-height: 47rem;
+	position: relative;
+	background: url(https://images.unsplash.com/photo-1582239239488-1a9eaa5c06b7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hpZW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60) no-repeat center;
+	background-size: 100% 100%;
+	box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	padding: 90px 70px 50px 70px;
+	background: rgba(70, 117, 109, 0.692);
+	.sign-in-htm {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		position: absolute;
+		transform: rotateY(180deg);
+		backface-visibility: hidden;
+		transition: all .4s linear;
+	}
+	.sign-up-htm {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		position: absolute;
+		transform: rotateY(180deg);
+		backface-visibility: hidden;
+		transition: all .4s linear;
+	}
+	.sign-in {
+		display: none;
+		&:checked {
+			+ {
+				.tab {
+					color: #fff;
+					border-color: #1b1b1bb7;
+					+ {
+						.sign-up {
+							+ {
+								.tab {
+									+ {
+										.login-form {
+											.sign-in-htm {
+												transform: rotate(0);
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.sign-up {
+		display: none;
+		&:checked {
+			+ {
+				.tab {
+					color: #fff;
+					border-color: #1b1b1bb7;
+					+ {
+						.login-form {
+							.sign-up-htm {
+								transform: rotate(0);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.tab {
+		text-transform: uppercase;
+		font-size: 22px;
+		margin-right: 15px;
+		padding-bottom: 5px;
+		margin: 0 15px 10px 0;
+		display: inline-block;
+		border-bottom: 2px solid transparent;
+	}
+}
+.login-form {
+	.group {
+		.check {
+			display: none;
+			&:checked {
+				+ {
+					label {
+						color: #fff;
+						.icon {
+							background: #288682;
+							&:before {
+								transform: scale(1) rotate(45deg);
+							}
+							&:after {
+								transform: scale(1) rotate(-45deg);
+							}
+						}
+					}
+				}
+			}
+		}
+		.label {
+			text-transform: uppercase;
+			width: 100%;
+			color: #fff;
+			display: block;
+			color: rgb(46, 46, 46);
+			font-size: 12px;
+		}
+		.button {
+			text-transform: uppercase;
+			width: 100%;
+			color: #fff;
+			display: block;
+			border: none;
+			padding: 15px 20px;
+			border-radius: 25px;
+			background: rgba(39, 39, 39, 0.664);
+			background: #2c9e85;
+		}
+		margin-bottom: 15px;
+		.input {
+			width: 100%;
+			color: #fff;
+			display: block;
+			border: none;
+			padding: 15px 20px;
+			border-radius: 25px;
+			background: rgba(39, 39, 39, 0.664);
+		}
+		input[data-type="password"] {
+			-moz-text-security: circle;
+			-webkit-text-security: circle;
+		}
+		label {
+			.icon {
+				width: 15px;
+				height: 15px;
+				border-radius: 2px;
+				position: relative;
+				display: inline-block;
+				background: rgba(255, 255, 255, 0.418);
+				&:before {
+					content: '';
+					width: 10px;
+					height: 2px;
+					background: #fff;
+					position: absolute;
+					transition: all .2s ease-in-out 0s;
+					left: 3px;
+					width: 5px;
+					bottom: 6px;
+					transform: scale(0) rotate(0);
+				}
+				&:after {
+					content: '';
+					width: 10px;
+					height: 2px;
+					background: #fff;
+					position: absolute;
+					transition: all .2s ease-in-out 0s;
+					top: 6px;
+					right: 0;
+					transform: scale(0) rotate(0);
+				}
+			}
+		}
+	}
+	min-height: 40rem;
+	position: relative;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+.hr {
+	height: 1px;
+	margin: 10px 0 10px 0;
+	background: rgb(65, 65, 65);
+	margin-top: - .4em;
+}
+.foot-lnk {
+	text-align: center;
+	width: 100%;
+	a {
+		background-color: #288682;
+		font-size: 1rem;
+		border: 1px solid black;
+		border-radius: 3px;
+		margin-top: 10%;
+	}
+}
+@media screen and (max-height: 450px) {
+	.overlay {
+		a {
+			font-size: 20px;
+		}
+		.closebtn {
+			font-size: 40px;
+			top: 15px;
+			right: 35px;
+		}
+	}
+}
