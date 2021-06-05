@@ -29,7 +29,7 @@ class AccessoireController extends AbstractController
      */
     public function alimentation(AccessoireRepository $accessoireRepository): Response
     {
-        $accessoire = $accessoireRepository->findBy(array('categoryAccessoire'=> '512'));
+        $accessoire = $accessoireRepository->findBy(array('categoryAccessoire'=> '889'));
 
         return $this->render('accessoire/alimentation.html.twig', [
             'accessoires'=> $accessoire,
@@ -41,7 +41,7 @@ class AccessoireController extends AbstractController
      */
     public function habitat(AccessoireRepository $accessoireRepository): Response
     {
-        $accessoire = $accessoireRepository->findBy(array('categoryAccessoire'=> '513'));
+        $accessoire = $accessoireRepository->findBy(array('categoryAccessoire'=> '890'));
 
         return $this->render('accessoire/habitat.html.twig', [
             'accessoires'=> $accessoire,
@@ -53,7 +53,7 @@ class AccessoireController extends AbstractController
      */
     public function soins(AccessoireRepository $accessoireRepository): Response
     {
-        $accessoire = $accessoireRepository->findBy(array('categoryAccessoire'=> '514'));
+        $accessoire = $accessoireRepository->findBy(array('categoryAccessoire'=> '891'));
 
         return $this->render('accessoire/soins.html.twig', [
             'accessoires'=> $accessoire,
@@ -65,7 +65,7 @@ class AccessoireController extends AbstractController
      */
     public function jeux(AccessoireRepository $accessoireRepository): Response
     {
-        $accessoire = $accessoireRepository->findBy(array('categoryAccessoire'=> '515'));
+        $accessoire = $accessoireRepository->findBy(array('categoryAccessoire'=> '892'));
 
         return $this->render('accessoire/jeux.html.twig', [
             'accessoires'=> $accessoire,

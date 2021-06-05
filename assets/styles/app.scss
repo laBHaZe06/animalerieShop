@@ -1,6 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 body {
     background-color: rgb(255, 255, 255);
+    .teal{
+        background-color: $teal;
+    }
+    .teal-1{
+        color: $teal;
+    }
 }
 
 

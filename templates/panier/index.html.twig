@@ -15,32 +15,31 @@
                             
                         {% if items|length > 0  %}
                         {% for item in items %}
-                        
-                        
-                      
+                                            
                 </div>
             </div>
             <div class="row border-top border-bottom">
                 <div class="row main align-items-center">
                     <div class="col-2"><img class="img-fluid" src="{{ item.accessoire.coverImage}}"></div>
-                    <div class="col">
+                    <div class="col-4">
                         <div class="row text-muted">{{ item.accessoire.CategoryAccessoire}}</div>
                         <div class="row">{{ item.accessoire.categoryAnimaux}}</div>
                          <div class="row text-muted">{{ item.accessoire.description }}</div>
                         <div class="row">reste {{ item.accessoire.stock}} unités</div>
                     </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border">{{ item.quantity }}</a><a href="#">+</a> </div>
-                    <div class="col">€ {{ item.accessoire.price}}<span class="close">X</span></div>
-                   
-                     <a type="button" class="btn btn-sm btn-outline-warning"href="{{ path('delete' , {'id': items.accessoire.id  } ) }}"><i class="fas fa-shopping-basket"></i>ANNULER ARTICLE</a>
+                    <div class="col"><a href="{{ path('remove',{'id': item.accessoire.id  }) }}">-</a><a href="#" class="border">{{ item.quantity }}</a><a href="{{path('panier_add',{'id': item.accessoire.id  }) }}">+</a> </div>
+                    <div class="col">€ {{ item.accessoire.price}}<span class="close"> X {{item.quantity}}</span></div>
+                    <div class="col">
+                     <a type="button" class="btn btn-sm btn-outline-danger col"href="{{ path('delete',{'id': item.accessoire.id  }) }}"><i class="fas fa-trash"></i></a>
+                    </div>
 
                     
         {% endfor %}
+        
                 </div>
             </div>
 
-            <div class="back-to-shop"><a href="{{path('home')}}"><i class="fas fa-arrow-left"></i></a><span class="text-muted">Back to
-                    shop</span></div>
+            <div class="back-to-shop"><a href="{{path('home')}}"><i class="fas fa-arrow-left"></i></a><span class="text-muted"> continuer mes achats</span></div>
         </div>
         <div class="col-md-4 summary">
             <div>
@@ -56,29 +55,29 @@
             {% endfor %}
             <form class="form-panier">
                 <p>Frais de livraison</p> <select class="select-panier">
-                    <option class="text-muted">Livraison standard- € 5.00</option>
+                    <option class="text-muted" id="standard">Livraison standard- € 5.00</option>
+                     <option class="text-muted" id="rapide">Livraison rapide- € 8.00</option>
                 </select>
-                <p>CODE PROMOS</p> <input id="code" placeholder="Enter your code" class="input-panier">
+                <p>CODE PROMOS</p> <input id="code" placeholder="Entrer code promos" class="input-panier">
+                <button class="btn btn-outline-success">confirmer code</button>
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">TOTAL :</div>
                 <div class="col text-right">€ {{ total }}</div>
             </div> 
             <a class="btn btn-success btn-panier" href="#">COMMANDER</a>
-            <a type="button" class="btn btn-warning mt-4"href="{{ path('delete_all') }}"><i class="fas fa-shopping-basket"></i>VIDER PANIER</a>
-            
-            
+            <a type="button" class="btn btn-warning mt-4"href="{{ path('delete_all') }}"><i class="fas fa-shopping-basket"></i>VIDER PANIER</a>           
         
         </div>
     </div>
 </div>
-{% else %}
-<div class="col">
-    <h4><b>VOTRE PANIER EST VIDE</b></h4>
-</div>
-<div class="back-to-shop"><a href="{{path('home')}}"><i class="fas fa-arrow-left"></i></a><span class="text-muted">Continuer mes achats</span></div>
-{% endif %}
-{% endblock %}
+    {% else %}
+    <div class="col">
+        <h4><b>VOTRE PANIER EST VIDE</b></h4>
+    </div>
+    <div class="back-to-shop"><a href="{{path('home')}}"><i class="fas fa-arrow-left"></i></a><span class="text-muted">Continuer mes achats</span></div>
+    {% endif %}
+    {% endblock %}
 
 {% block javascript %}
 <script>

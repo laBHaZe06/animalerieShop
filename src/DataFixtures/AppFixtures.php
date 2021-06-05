@@ -81,8 +81,8 @@ class AppFixtures extends Fixture
               $manager->flush();
             }
         }
+    
     }
-
         
             foreach($categoryAcc as $categoryAccessoire)
             {
@@ -126,7 +126,7 @@ class AppFixtures extends Fixture
             
             }
             
-         
+           
            
 
         $manager->flush();

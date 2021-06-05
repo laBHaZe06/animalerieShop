@@ -7,21 +7,21 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <a class="navbar-brand" href="#">
         <picture>
-          <source srcset="/img/logo2.jpg" media="(min-width: 1400px)">
-          <source srcset="/img/logo.jpg" media="(min-width: 769px)">
-          <source srcset="/img/logo.jpg" media="(min-width: 300px)">
-          <img srcset="/img/logo2.jpg" alt="responsive image" class="d-block img-fluid" width="100" height="100">
+          <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Animal_Planet_logo_%28black_and_green%29.svg/1200px-Animal_Planet_logo_%28black_and_green%29.svg.png" media="(min-width: 1400px)">
+          <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Animal_Planet_logo_%28black_and_green%29.svg/1200px-Animal_Planet_logo_%28black_and_green%29.svg.png" media="(min-width: 769px)">
+          <source srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Animal_Planet_logo_%28black_and_green%29.svg/1200px-Animal_Planet_logo_%28black_and_green%29.svg.png" media="(min-width: 300px)">
+          <img srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Animal_Planet_logo_%28black_and_green%29.svg/1200px-Animal_Planet_logo_%28black_and_green%29.svg.png" alt="responsive image" class="d-block img-fluid" width="100" height="100">
         </picture>
       </a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <form class="d-flex ml-2 col-lg-12" method="post" action="{{path('search')}}">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-start">
+        <form class="d-flex ml-2" method="post" action="{{path('search')}}">
           <input class="form-control me-1 w-100 " type="search" name="search" placeholder="Recherche"
             aria-label="Search">
-          <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
+          <button class="btn btn-warning teal" type="submit"><i class="fas fa-search"></i></button>
         </form>
         {% if app.request.attributes.get('_route') != "home" %}
-        <li class="nav-item ml-2">
-          <a class="nav-link active" aria-current="page" href="{{ path ('home') }}">Accueil</a>
+        <li class="nav-item ml-2 ">
+          <a class="nav-link active" aria-current="page" href="{{ path ('home') }}"><i class="fa fa-home teal-1"></i> Accueil</a>
         </li>
         {% else %}
         {% endif %}
@@ -29,7 +29,7 @@
           <div class="dropdown">
             <a class="btn btn-transparency dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
               data-bs-toggle="dropdown" aria-expanded="false">
-              Animaux
+              <i class="fas fa-paw teal-1"></i> Animaux
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li><a class="dropdown-item" href="{{ path('animaux_index') }}">Nos animaux</a></li>
@@ -46,7 +46,7 @@
           <div class="dropdown">
             <a class="btn btn-transparency dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
               data-bs-toggle="dropdown" aria-expanded="false">
-              Shop
+              <i class="fas fa-leaf teal-1"></i> Shop
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li><a class="dropdown-item" href="{{path('accessoire_index')}}">Nos accessoires</a></li>
@@ -57,28 +57,12 @@
               <li><a class="dropdown-item" href="{{ path('accessoire_soins') }}">Soins</a></li>
             </ul>
           </div>
-
-        <li class="nav-item ml-2">
-          <div class="dropdown">
-            <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Panier <i class="fas fa-shopping-basket"></i> 3
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item m-autpo" href="#">Mon Panier</a></li>
-              <hr>
-              <li><a class="dropdown-item" href="#">Articles : </a></li>
-              <li><a class="dropdown-item" href="#">Livraison : </a></li>
-              <hr>
-              <li><a class="dropdown-item mr-1" href="#">Total :</a></li>
-            </ul>
-          </div>
         </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          {% if (app.user) %}
 
+      </ul>
+      <ul class="navbar-nav justify-content-end">
+
+        {% if (app.user) %}
         <li class="nav-item active">
           <a class="nav-link" href="{{ path('account_logout') }}">Déconnexion</a>
         </li>
@@ -93,20 +77,24 @@
               <li><a class="dropdown-item" href="{{path('account_profil')}}">Mon profil</a></li>
               <hr>
               <li><a class="dropdown-item" href="#">Ma liste</a></li>
+              <li class="nav-item ml-2">
+              <li><a class="dropdown-item m-auto" href="{{path('panier_index')}}">Mon Panier <i
+                    class="fas fa-shopping-basket"></a></li>
               <li><a class="dropdown-item" href="#">Mes code promos</a></li>
               <li><a class="dropdown-item" href="#">Modifier mon profil</a></li>
               <li><a class="dropdown-item" href="#">Modifier password</a></li>
             </ul>
             {% else %}
         <li class="nav-item active ml-2">
-         {#  <a class="nav-link" aria-current="page" href="{{path('account_register')}}">Inscription</a> #}
+          <a class="nav-link active " aria-current="page" href="{{path('account_login')}}"><i class="fas fa-user-circle teal-1"></i> Connexion</a>
         </li>
         <li class="nav-item active ml-2">
-         {# <a class="nav-link" aria-current="page" href="{{path('account_login')}}">Connexion</a>#}
+          {#  <a class="nav-link" aria-current="page" href="{{path('account_register')}}">Inscription</a> #}
         </li>
         {% endif %}
-        <li class="nav-item m-auto">
-          {#{% include 'security/account/_partials/modal.html.twig' %}#}
+        <li class="nav-item ml-2">
+          <a class="btn btn-warning teal" aria-current="page" href="{{path('panier_index')}}">Panier <i class="fas fa-shopping-basket"></i>
+          </a>
         </li>
       </ul>
     </div>
@@ -130,11 +118,7 @@
   {% for message in messages %}
   <p>{{ message }}</p>
   {% endfor %}
-
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
 {% endfor %}

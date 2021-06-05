@@ -5,7 +5,7 @@
 {% block body %}
 
 {% include '_partials/_header.html.twig' %}
-
+{% set urlPanier = path('panier_add', {'id': accessoire.id  }) %}
 
 <div class="pd-wrap">
 	<div class="container">
@@ -94,11 +94,11 @@
 					<div class="product-count">
 						<label for="size">Quantity</label>
 						<form action="#" class="display-flex">
-							<div class="qtyminus">-</div>
+							<div class="qtyminus"><a href="{{path('remove',{'id': accessoire.id  }) }}">-</a></div>
 							<input type="text" name="quantity" value="1" class="qty">
-							<div class="qtyplus">+</div>
+							<div class="qtyplus"><a href="{{path('panier_add',{'id': accessoire.id  }) }}">+</a></div>
 						</form>
-						<a href="#" class="round-black-btn">Add to Cart</a>
+						<a href="{{ urlPanier}}" class="round-black-btn">Add to Cart</a>
 					</div>
 				</div>
 			</div>

@@ -29,7 +29,7 @@ class AnimauxController extends AbstractController
      */
     public function dog(AnimauxRepository $animauxRepository)
     {
-        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'181'));
+        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'406'));
         
         return $this->render('animaux/chien.html.twig', [
             'animal'=> $animaux,
@@ -41,7 +41,7 @@ class AnimauxController extends AbstractController
      */
     public function cat(AnimauxRepository $animauxRepository)
     {
-        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'182'));
+        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'407'));
         
         return $this->render('animaux/chat.html.twig', [
             'animal'=> $animaux,
@@ -53,7 +53,7 @@ class AnimauxController extends AbstractController
      */
     public function bird(AnimauxRepository $animauxRepository)
     {
-        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'183'));
+        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'408'));
         
         return $this->render('animaux/oiseaux.html.twig', [
             'animal'=> $animaux,
@@ -65,7 +65,7 @@ class AnimauxController extends AbstractController
      */
     public function rodent(AnimauxRepository $animauxRepository)
     {
-        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'184'));
+        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'409'));
         
         return $this->render('animaux/rongeur.html.twig', [
             'animal'=> $animaux,
@@ -77,7 +77,7 @@ class AnimauxController extends AbstractController
      */
     public function reptile(AnimauxRepository $animauxRepository)
     {
-        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'185'));
+        $animaux=$animauxRepository->findBy(array('categoryAnimaux'=>'410'));
         
         return $this->render('animaux/reptile.html.twig', [
             'animal'=> $animaux,

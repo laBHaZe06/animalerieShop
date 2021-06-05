@@ -9,12 +9,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccountController extends AbstractController
 {
     /**
-     * @Route("/account", name="account")
+     * @Route("/account", name="account_login")
      */
     public function index(): Response
     {
         return $this->render('account/index.html.twig', [
             'controller_name' => 'AccountController',
         ]);
+    }
+
+    /**
+     * @Route("/deconnexion", name="account_logout ")
+     */
+    public function logout()
+    {
+
+    
     }
 }

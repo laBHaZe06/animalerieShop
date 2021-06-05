@@ -1,21 +1,12 @@
 <?php
 
-namespace App\Controller;
+namespace App\Service;
 
-use App\Entity\Accessoire;
-use App\Repository\AccessoireRepository;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Service\PanierService;
 
-class PanierController extends AbstractController
+class PanierService
 {
-    /**
-     * @Route("/panier", name="panier_index")
-     */
-    public function index(SessionInterface $session, AccessoireRepository $accessoireRepository): Response
+    
+    public function panier(SessionInterface $session, AccessoireRepository $accessoireRepository): Response
     {
         $panier = $session->get('panier',[]);
         $panierWithData = [];
@@ -43,10 +34,7 @@ class PanierController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/panier/add/{id}",name="panier_add")
-     */
-    public function add($id, SessionInterface $session)
+    public function panierAdd($id, SessionInterface $session)
     {
        //$session = $request->getSession();
         $panier = $session->get('panier',[]);
@@ -64,10 +52,8 @@ class PanierController extends AbstractController
        return $this->redirectToRoute('panier_index');
     }
 
-        /**
-     * @Route("/remove/{id}", name="remove")
-     */
-    public function remove(Accessoire $accessoire, SessionInterface $session)
+    
+    public function panierRemove(Accessoire $accessoire, SessionInterface $session)
     {
         // On récupère le panier actuel
         $panier = $session->get("panier", []);
@@ -87,10 +73,8 @@ class PanierController extends AbstractController
         return $this->redirectToRoute("panier_index");
     }
 
-    /**
-     * @Route("/delete/{id}", name="delete")
-     */
-    public function delete(SessionInterface $session,Accessoire $accessoire): Response
+    
+    public function panierDelete(SessionInterface $session,Accessoire $accessoire)
     {
         $accessoire = new Accessoire();
         // On récupère le panier actuel
@@ -98,27 +82,18 @@ class PanierController extends AbstractController
         $id = $accessoire->getId();
 
         if(!empty($panier[$id])){
-            if($panier[$id] > 1){
-                $panier[$id]--;
-            }else{
-                unset($panier[$id]);
-               
-            }
-          //unset($panier[$id]); //je détruis ma variable
-          // On sauvegarde dans la session
-          $session->set("panier", $panier); //maj du panier
-             
 
+            unset($panier[$id]); //je détruis ma variable
         }
 
+        // On sauvegarde dans la session
+        $session->set("panier", $panier);
+
         return $this->redirectToRoute("panier_index");
-        
     }
 
-    /**
-     * @Route("/delete", name="delete_all")
-     */
-    public function deleteAll(SessionInterface $session)
+   
+    public function panierDeleteAll(SessionInterface $session)
     {
         $session->remove("panier");
 
