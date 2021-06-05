@@ -25,7 +25,7 @@
                         <div class="row text-muted">{{ item.accessoire.CategoryAccessoire}}</div>
                         <div class="row">{{ item.accessoire.categoryAnimaux}}</div>
                          <div class="row text-muted">{{ item.accessoire.description }}</div>
-                        <div class="row">reste {{ item.accessoire.stock}} unités</div>
+                        <div class="row">reste {{ item.accessoire.stock}} unité(s)</div>
                     </div>
                     <div class="col"><a href="{{ path('remove',{'id': item.accessoire.id  }) }}">-</a><a href="#" class="border">{{ item.quantity }}</a><a href="{{path('panier_add',{'id': item.accessoire.id  }) }}">+</a> </div>
                     <div class="col">€ {{ item.accessoire.price}}<span class="close"> X {{item.quantity}}</span></div>
